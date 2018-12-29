@@ -39,7 +39,7 @@ def DecodeFlacToWav(input_bytes):
       stdout=subprocess.PIPE,
       stderr=subprocess.PIPE, shell=True)
   out, err = p.communicate(input=input_bytes)
-  assert p.returncode == 0, err
+  assert p.returncode == 0, '\n'.format([err, 'input_len={}'.format(len(input_bytes)), out])
   return out
 
 
