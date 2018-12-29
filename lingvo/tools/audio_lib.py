@@ -37,7 +37,7 @@ def DecodeFlacToWav(input_bytes):
       ['sox', '-t', 'flac', '-', '-t', 'wav', '-'],
       stdin=subprocess.PIPE,
       stdout=subprocess.PIPE,
-      stderr=subprocess.PIPE)
+      stderr=subprocess.PIPE, shell=True)
   out, err = p.communicate(input=input_bytes)
   assert p.returncode == 0, err
   return out
