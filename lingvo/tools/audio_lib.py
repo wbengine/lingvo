@@ -34,7 +34,7 @@ from tensorflow.contrib.framework.python.ops import audio_ops as contrib_audio
 def DecodeFlacToWav(input_bytes):
   """Decode a FLAC byte string to WAV."""
   p = subprocess.Popen(
-      ['sox', '-t', 'flac', '-', '-t', 'wav', '-'],
+      ' '.join(['sox', '-t', 'flac', '-', '-t', 'wav', '-']),
       stdin=subprocess.PIPE,
       stdout=subprocess.PIPE,
       stderr=subprocess.PIPE, shell=True)
